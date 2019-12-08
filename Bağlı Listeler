@@ -124,6 +124,28 @@ public class LinkedList {
 			n.next=n1.next;
 		}
 	}
+	//değere göre silme fonksiyonunu yaz...
+	public Node sil(int deger) {
+		Node node=new Node();
+		node.data=deger;
+		node.next=null;
+		Node n=head;
+		if(n.data==node.data) {
+			head=n.next;
+			System.out.println("değer"+n.data);
+			return n;
+		}
+		while(n.next!=null && n.next.data!=node.data) {
+			n=n.next;
+		}
+		if(n.next==null) {
+			System.out.println("silinecek eleman bulunamadı...");
+			return n;
+		}			
+		node=n.next;
+		n.next=node.next;
+		return n;
+	}
 
 }
 
