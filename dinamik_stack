@@ -74,6 +74,24 @@ public class StackSadiHoca {
 		System.out.println("**********SHOW*************");
 		sh.show();
 		System.out.println("dizinin boyutu: "+sh.size());
-		System.out.println("dizinin kapasitesi: "+sh.capacity());
+		System.out.println("dizinin kapasitesi: "+sh.capacity());,
+		//Oluşturacağımız bir stack dizisini tersine çevirme
+		StackNew sn=new StackNew();
+		for(int i=0;i<10;i++) {
+			sn.push(i*10);
+		}
+		sn.show();
+		StackNew sn2=new StackNew();
+		/*
+		for(int i=0;i<10;i++) {
+			System.out.println(sn.pop());
+		}
+		*/
+		//sn yığınını tersine çevirmek için: (her bir elemanı pop edersek sırayla diğerine pop edilen değer sırasıyla push edilir.)
+		for(int i=0;i<10;i++) {
+			sn2.push(sn.pop());
+			//sn2.show();
+		}
+		sn2.show();
 	}
 }
