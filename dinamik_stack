@@ -18,7 +18,7 @@ class StackNew{
 	}
 	
 	public int pop() {
-		if(top==0) {
+		if(top==0 || dizi==null) {
 			System.out.println("Dizi boş");
 			return -1;
 		}
