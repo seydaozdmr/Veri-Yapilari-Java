@@ -1,5 +1,23 @@
 public class binarysearch_rmvdup {
-	
+	//Gönderilen dizide tekrar eden elemanları temizleyip yeni bir dizi olarak gönderen algoritma
+	public static int [] removeDuplicates(int[]whitelist) {
+		int[] newWhiteList=new int[whitelist.length];
+		
+		newWhiteList[0]=whitelist[0];
+		int count=0;
+		
+		for(int i=1;i<whitelist.length;i++) {
+			if(whitelist[i]!=newWhiteList[count]) {
+				count++;
+				newWhiteList[count]=whitelist[i];
+			}
+		}
+		count++;
+		//yeni liste içerisindeki bilgileri boşlukları yok edecek şekilde compact list'e copyalayacağız.
+		int [] compactNewWhiteList=new int[count];
+		System.arraycopy(newWhiteList, 0, compactNewWhiteList, 0, count);
+		return compactNewWhiteList;
+	}
 	//Bir dizi içerisinde aranan elemanların yer aldığı diziyi karşılaştıran olmayanları + olanları - olarak belirten algoritma
 	public static void binarySearch(int []arr,int[]numbers,char karakter) {
 		if(karakter=='+') {
@@ -59,6 +77,14 @@ public class binarysearch_rmvdup {
 		System.out.println();
 		//Olanlar
 		binarySearch(arr, numbers, '-');
+		System.out.println();
+		int[] whitelist = {1, 2, 3, 4, 5, 6, 6, 7, 7, 8,11,12,13,14};
+		int[] keys = {1, 4 , 5, 9, 10,13};
+		Arrays.sort(whitelist);
+		int[] yenilist=removeDuplicates(whitelist);
+		binarySearch(yenilist,keys,'+');
+		System.out.println();
+		binarySearch(yenilist,keys,'-');
 
 	}
 
